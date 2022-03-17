@@ -1,0 +1,108 @@
+<html>
+  <style>
+  </style>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body{
+        background-color: rgb(139, 137, 137);
+        background-size: cover;
+        height: 100%;
+        min-height: 100%;
+        margin: 0px;
+        padding: 0px;
+        align-items: center;
+      }   
+      .pagination ul{
+        display: flex;
+        padding: 8px;
+        border-radius: 50px;
+        width: 100%;
+        flex-wrap: wrap;
+        box-shadow: 0px 10px 15px;
+        justify-content: center;
+      }
+      .pagination ul li{
+        color: turquoise;
+        list-style: none;
+        line-height: 45px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.5s ease;
+      }
+      .pagination ul li.numb{
+        list-style: none;
+        height: 45px;
+        width: 45px;
+        margin: 0 3px;
+        line-height: 45px;
+        border-radius: 50%;
+      }
+      .pagination ul li.dots{
+        font-size: 22px;
+        cursor: default;
+      }
+      .pagination ul li.btn{
+        background: yellow;
+        padding: 0 20px;
+        color: black;
+      }
+      .pagination ul li.prev{
+        border-radius: 25px 5px 5px 25px;
+      }
+      .pagination ul li.next{
+        border-radius: 5px 25px 25px 5px;
+      }
+      .pagination ul li.active,
+      .pagination ul li.numb:hover,
+      .pagination ul li.btn:hover{
+        background: yellow;
+        color: black;
+      }
+    </style>
+    <meta charset="UTF-8"/>
+    <title>FALUST Search</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}" />
+  </head>
+  <body>
+    <div class="maininfo">
+    <div class="container mx-auto my-4 ">
+      <div class="mb-4">
+        <h1 class="font-black text-6xl" style="color:#FFFF00">
+          <a href="http://127.0.0.1:5000/">FALUST</a>
+        </h1>
+      </div>
+      {% block content %}
+      <div class="row" id="both">
+        <div class="column"> <a style="color: white;">Last Top 10 clusters</a>
+          <ol class="cluster-list">
+            <li class="cluster-item"><a>1</a></li>
+            <li class="cluster-item"><a>2</a></li>
+            <li class="cluster-item"><a>3</a></li>
+            <li class="cluster-item"><a>4</a></li>
+            <li class="cluster-item"><a>5</a></li>
+            <li class="cluster-item"><a>6</a></li>
+            <li class="cluster-item"><a>7</a></li>
+            <li class="cluster-item"><a>8</a></li>
+            <li class="cluster-item"><a>9</a></li>
+            <li class="cluster-item"><a>10</a></li>
+        </ol>
+        </div>
+        <div class="column"><img src="https://media.istockphoto.com/photos/map-and-bulb-image-on-black-background-globalization-concept-picture-id1211187410?k=20&m=1211187410&s=170667a&w=0&h=AizZnhUISxQxv6gsPuGNsEuHRRcaPH_XyjwSmhCFI-Q=" class="imgcenter"/></div>
+      </div>
+      {% endblock%}
+    </div>
+  </body>
+</html>
+

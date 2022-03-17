@@ -1,0 +1,28 @@
+{% extends 'base2.html' %}
+    {% block content %} 
+    
+    <div style="font-size: 1.3em; margin: 10px;"><h1><em>Clusters for {{query}}</em></h1></div>
+    <div class="normal">
+    <div class= "cluster-name" style="display: flex; flex-wrap: wrap; align-content: stretch; ">
+        {% for entry in cluster_labels %}
+            <form action="{{url_for('cluster')}}" method="post">
+                <input type="submit" class=" clustername-text" style="background: rgb(88, 97, 177); color: white; width: fit-content; margin:10px; padding: 15px;  border-radius: 15px;  font-size: 2em;" value="{{','.join(entry['phrases'][:2])}} ({{entry['documents']|length}})" name="{{entry['id']}}">
+                    <ul></ul>              
+                </input>
+            </form>
+                {% endfor %}         
+    </div>
+    <div style="font-size: 1.3em; margin: 10px;"><h1><em>Your Results for {{query}}</em></h1></div>
+    
+    
+       
+{% for entry in results %}
+    <div class="w-1/3 border rounded-xl bg-yellow-200 m-3 items-center" style="border-radius: 20px; width: 70%;">
+	<h2 class="font-bold" style="font-size: 1.3em; margin: 10px; padding: 5px;">{{entry.title}}</h2>
+    <h3 class="font-semibold text-lg" style="margin: 10px; padding: 5px;">{{entry.extract[:150]}} </h3>
+    <button class="p-2 bg-indigo.600 rounded-xl shadow"><a href={{'https://en.wikipedia.org/wiki/'+'_'.join(entry.title.split())}}>Wikipedia Page</a></button>
+    </div>
+{% endfor %}
+    </div>
+    
+    {% endblock content %}
